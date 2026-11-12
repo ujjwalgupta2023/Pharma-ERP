@@ -9,3 +9,8 @@ data/
 pharma-erp.jar
 *.jar
 !.mvn/wrapper/maven-wrapper.jar
+
+# Native packaging output (large; regenerate with installer scripts)
+build-input/
+build-app/
+dist/

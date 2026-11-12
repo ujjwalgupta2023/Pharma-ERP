@@ -47,6 +47,30 @@ press `Ctrl + C` (Windows) / `Control + C` (Mac) to stop.
 > in the folder once and run `chmod +x start-mac.command`. If macOS blocks it as
 > "unidentified developer", right-click the file → **Open** → **Open**.
 
+### Native desktop app (no Java install needed)
+
+The app can be packaged as a native desktop application that **bundles its own
+Java runtime**, so end users don't install Java or use a terminal. They get an
+icon; clicking it starts the app and opens the browser automatically.
+
+Build scripts live in the `installer/` folder (they use the JDK's `jpackage`):
+
+- **Windows:** run `installer\build-windows-installer.bat`
+  - If **WiX Toolset v3** is installed (`winget install WiXToolset.WiX`), it
+    produces a double-click installer `dist\PharmaERP-1.0.0.exe` that installs
+    like VS Code, with Desktop + Start Menu shortcuts.
+  - Without WiX, it produces a **portable app** in `dist\PharmaERP\` — just run
+    `PharmaERP.exe` (still no Java needed). Use
+    `installer\create-desktop-shortcut.bat` to add a Desktop icon.
+- **macOS:** run `installer/build-mac-installer.sh` on a Mac to produce
+  `dist/PharmaERP-1.0.0.dmg`. Open it and drag PharmaERP to Applications.
+
+> `jpackage` cannot cross-build: build the Windows package on Windows and the
+> macOS package on a Mac.
+
+Data is stored per-user under `~/.pharma-erp`, so it survives app re-installs
+and updates regardless of where the app is installed.
+
 ### Standalone jar
 
 The app is packaged as a single self-contained file, **`pharma-erp.jar`**, that
