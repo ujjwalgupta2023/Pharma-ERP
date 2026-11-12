@@ -1,0 +1,11 @@
+target/
+data/
+*.log
+.idea/
+*.iml
+.vscode/
+
+# Build artifact — rebuild with `mvnw package`, not committed
+pharma-erp.jar
+*.jar
+!.mvn/wrapper/maven-wrapper.jar

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PharmaERP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo">&#9877;</span>
+        <span>PharmaERP</span>
+      </div>
+      <nav id="nav">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="products">Products</button>
+        <button class="nav-item" data-view="inventory">Inventory</button>
+        <button class="nav-item" data-view="purchases">Purchase Orders</button>
+        <button class="nav-item" data-view="sales">Sales / Invoices</button>
+        <button class="nav-item" data-view="suppliers">Suppliers</button>
+        <button class="nav-item" data-view="customers">Customers</button>
+        <button class="nav-item" data-view="settings">Company / Settings</button>
+      </nav>
+      <div class="sidebar-foot">v1.0 &middot; H2 demo data</div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <h1 id="viewTitle">Dashboard</h1>
+        <div class="topbar-actions" id="topbarActions"></div>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
